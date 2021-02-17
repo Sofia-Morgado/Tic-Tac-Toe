@@ -12,13 +12,19 @@
   },
   "license": "MIT",
   "dependencies": {
+    "node-sass": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@parcel/optimizer-cssnano": "^2.0.0-nightly.599",
     "@parcel/optimizer-htmlnano": "^2.0.0-nightly.599",
+    "@parcel/packager-css": "^2.0.0-nightly.599",
     "@parcel/packager-html": "^2.0.0-nightly.599",
+    "@parcel/transformer-css": "^2.0.0-nightly.599",
     "@parcel/transformer-html": "^2.0.0-nightly.599",
+    "@parcel/transformer-postcss": "^2.0.0-nightly.599",
     "@parcel/transformer-posthtml": "^2.0.0-nightly.599",
     "babel-eslint": "^10.1.0",
     "babel-preset-nano-react-app": "^0.1.0",
@@ -28,7 +34,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
-    "parcel": "^2.0.0-alpha.3.2",
+    "parcel": "^1.12.4",
+    "postcss": "^8.2.6",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.2"
   },
