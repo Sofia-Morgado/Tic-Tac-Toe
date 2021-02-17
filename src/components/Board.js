@@ -1,26 +1,68 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Square from "./Square";
 
 
 const Board = () => {
+
+    // Create an array with null values
+    // setBoard is the function that will update the board
+    const [board, setBoard] = useState(Array(9).fill(null));
+    
+    const [isXNext, setIsXNext] = useState(false);
+
+    const handleSquareClick = indexClicked => {
+
+        // Check if the board position is already filled, we exit
+        if (board[indexClicked]){
+            return;
+        }
+
+        // Change board status
+        setBoard(previousState => {
+            return previousState.map((square, index) => {
+            
+                if (index === indexClicked){
+                    // sees acording to isXNext logic
+                    return isXNext ? "X" : "O";
+                }
+
+                return square;
+            });
+        });
+
+        //Change isXnextstate
+        setIsXNext(prev => !prev);
+    };
+
+
+    const renderSquare = index => {
+        return(
+            <Square 
+                value = {board[index]}
+                onClick = {() => handleSquareClick(index)}
+            />
+        );
+    }
+
+    // Node {render} inside {} because is javascript
     return (
         <div className="board">
             <div className="board-row">
-                <Square value={0}/>
-                <Square value={1}/>
-                <Square value={2}/>
+                {renderSquare(0)}
+                {renderSquare(1)}
+                {renderSquare(2)}
             </div>
 
             <div className="board-row">
-                <Square value={3}/>
-                <Square value={4}/>
-                <Square value={5}/>
+                {renderSquare(3)}
+                {renderSquare(4)}
+                {renderSquare(5)}
             </div>
 
             <div className="board-row">
-                <Square value={6}/>
-                <Square value={7}/>
-                <Square value={8}/>
+                {renderSquare(6)}
+                {renderSquare(7)}
+                {renderSquare(8)}
             </div>
             
         </div>
