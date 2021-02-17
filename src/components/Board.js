@@ -1,39 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Square from "./Square";
 
 
-const Board = () => {
-
-    // Create an array with null values
-    // setBoard is the function that will update the board
-    const [board, setBoard] = useState(Array(9).fill(null));
-    
-    const [isXNext, setIsXNext] = useState(false);
-
-    const handleSquareClick = indexClicked => {
-
-        // Check if the board position is already filled, we exit
-        if (board[indexClicked]){
-            return;
-        }
-
-        // Change board status
-        setBoard(previousState => {
-            return previousState.map((square, index) => {
-            
-                if (index === indexClicked){
-                    // sees acording to isXNext logic
-                    return isXNext ? "X" : "O";
-                }
-
-                return square;
-            });
-        });
-
-        //Change isXnextstate
-        setIsXNext(prev => !prev);
-    };
-
+const Board = ({board, handleSquareClick}) => {
 
     const renderSquare = index => {
         return(
